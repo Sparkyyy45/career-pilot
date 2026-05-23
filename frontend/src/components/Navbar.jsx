@@ -180,7 +180,7 @@ export default function Navbar() {
               </Link>
             ))}
 
-            {/* Private Links */}
+            {/* Conditionally visible private links */}
             {user &&
               privateLinks.map(({ path, label, icon: Icon }) => (
                 <Link
@@ -366,9 +366,13 @@ export default function Navbar() {
                   key={path}
                   to={path}
                   onClick={() => setMobileMenuOpen(false)}
+<<<<<<< HEAD
                   className={`nav-link text-base ${
                     isActive(path) ? "nav-link-active" : "nav-link-inactive"
                   }`}
+=======
+                  className={`flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium transition-all-300 ${isActive(path) ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:text-foreground hover:bg-muted'}`}
+>>>>>>> 381ddd5 (fix: standardize navigation link styling and resolve merge conflicts in Navbar)
                 >
                   <Icon className="w-5 h-5" />
                   {label}
@@ -381,9 +385,13 @@ export default function Navbar() {
                     key={path}
                     to={path}
                     onClick={() => setMobileMenuOpen(false)}
+<<<<<<< HEAD
                     className={`nav-link text-base ${
                       isActive(path) ? "nav-link-active" : "nav-link-inactive"
                     }`}
+=======
+                    className={`flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium transition-all-300 ${isActive(path) ? 'bg-primary/10 text-primary' : 'text-muted-foreground hover:text-foreground hover:bg-muted'}`}
+>>>>>>> 381ddd5 (fix: standardize navigation link styling and resolve merge conflicts in Navbar)
                   >
                     <Icon className="w-5 h-5" />
                     {label}
