@@ -4,6 +4,7 @@ import toast from 'react-hot-toast'
 import { motion } from 'framer-motion'
 import { resumeApi, enhanceApi } from '../services/api'
 import { triggerConfetti } from '../utils/confetti'
+import ResumeAnalysisSkeleton from '../components/ui/ResumeAnalysisSkeleton'
 import {
   Target,
   TrendingUp,
@@ -583,31 +584,7 @@ export default function Enhance() {
         )}
 
         {/* Analyzing State */}
-        {analyzing && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="bg-background/50 border border-border rounded-2xl p-12 text-center"
-          >
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/20 rounded-full mb-4">
-              <RefreshCw className="w-8 h-8 text-primary animate-spin" />
-            </div>
-            <h3 className="text-xl font-semibold text-foreground mb-2">Analyzing Your Resume</h3>
-            <p className="text-muted-foreground">
-              Our AI is evaluating your resume against ATS systems for the {jobRole} position...
-            </p>
-            <div className="mt-4 flex justify-center gap-1">
-              {[0, 1, 2].map((i) => (
-                <motion.div
-                  key={i}
-                  animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
-                  transition={{ duration: 1, repeat: Infinity, delay: i * 0.2 }}
-                  className="w-2 h-2 bg-primary rounded-full"
-                />
-              ))}
-            </div>
-          </motion.div>
-        )}
+        {analyzing && <ResumeAnalysisSkeleton />}
 
         {/* ATS Analysis Results */}
         {hasAnalyzed && atsAnalysis && (
